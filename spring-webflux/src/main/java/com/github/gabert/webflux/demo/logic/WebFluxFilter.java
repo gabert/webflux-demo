@@ -1,4 +1,4 @@
-package com.github.gabert.webfluxdemo.logic;
+package com.github.gabert.webflux.demo.logic;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;

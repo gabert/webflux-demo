@@ -1,4 +1,4 @@
-package com.github.gabert.webfluxdemo.logic;
+package com.github.gabert.webflux.demo.logic;
 
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;

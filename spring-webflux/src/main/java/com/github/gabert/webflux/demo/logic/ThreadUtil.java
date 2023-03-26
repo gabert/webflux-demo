@@ -1,4 +1,4 @@
-package com.github.gabert.webfluxdemo.logic;
+package com.github.gabert.webflux.demo.logic;
 
 public class ThreadUtil {
     public static void sleep(long millis) {

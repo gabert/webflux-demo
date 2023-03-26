@@ -5,11 +5,12 @@
     <groupId>com.github.gabert</groupId>
     <artifactId>webflux-demo-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>webflux-demo-parent</name>
+
     <packaging>pom</packaging>
 
     <modules>
         <module>spring-webflux</module>
         <module>spring-mvc</module>
+        <module>spring-webflux-app</module>
     </modules>
 </project>
