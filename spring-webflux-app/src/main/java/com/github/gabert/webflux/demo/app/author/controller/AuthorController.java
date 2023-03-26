@@ -4,6 +4,7 @@ import com.github.gabert.webflux.demo.app.author.service.AuthorCreateRequest;
 import com.github.gabert.webflux.demo.app.author.service.AuthorDetailResponse;
 import com.github.gabert.webflux.demo.app.author.service.AuthorService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ public class AuthorController {
     @PostMapping("/api/authors")
     public Mono<ResponseEntity<String>> createAuthor(@RequestBody AuthorCreateRequest authorCreateRequest) {
         return authorService.createAuthor(authorCreateRequest)
-                .map(id -> ResponseEntity.status(201)
+                .map(id -> ResponseEntity.status(HttpStatus.CREATED)
                                          .body(id))
                 .onErrorResume(error -> Mono.just(ResponseEntity.badRequest()
                                                                 .body(error.getMessage())));

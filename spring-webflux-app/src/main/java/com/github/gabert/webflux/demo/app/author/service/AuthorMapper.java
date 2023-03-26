@@ -14,7 +14,7 @@ public final class AuthorMapper {
     private static List<BookDocument> mapToDocument(List<BookDetail> bookDetails) {
         return bookDetails.stream()
                 .map(bookDetail -> new BookDocument().setTitle(bookDetail.getTitle())
-                        .setIsbn(bookDetail.getIsbn()))
+                                                     .setIsbn(bookDetail.getIsbn()))
                 .toList();
     }
 

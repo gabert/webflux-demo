@@ -16,9 +16,9 @@ public class AuthorService {
         return authorRepository.findByName(authorCreateRequest.getName())
                 .hasElements()
                 .flatMap(alreadyExists -> alreadyExists
-                        ? Mono.error(new IllegalArgumentException("Author: " +
+                        ? Mono.error(new IllegalArgumentException("Author \"" +
                                                                   authorCreateRequest.getName() +
-                                                                  " already exists."))
+                                                                  "\" already exists."))
                         : insertAuthor(authorCreateRequest));
     }
 
