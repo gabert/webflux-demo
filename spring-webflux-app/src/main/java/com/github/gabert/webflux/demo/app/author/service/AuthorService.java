@@ -14,6 +14,7 @@ public class AuthorService {
 
     public Mono<String> createAuthor(AuthorCreateRequest authorCreateRequest) {
         return authorRepository.findByName(authorCreateRequest.getName())
+                .log()
                 .hasElements()
                 .flatMap(alreadyExists -> alreadyExists
                         ? Mono.error(new IllegalArgumentException("Author \"" +
@@ -23,10 +24,8 @@ public class AuthorService {
     }
 
     private Mono<String> insertAuthor(AuthorCreateRequest authorCreateRequest) {
-        return Mono.just(authorCreateRequest)
-                   .map(AuthorMapper::mapToDocument)
-                   .flatMap(authorRepository::save)
-                   .map(AuthorDocument::getId);
+        return authorRepository.save(AuthorMapper.mapToDocument(authorCreateRequest))
+                .map(AuthorDocument::getId);
     }
 
     public Flux<AuthorDetailResponse> listAuthors() {

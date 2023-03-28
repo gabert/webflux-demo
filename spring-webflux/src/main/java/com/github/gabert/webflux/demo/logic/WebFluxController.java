@@ -13,6 +13,6 @@ public class WebFluxController {
     @GetMapping("/flux_result")
     public Mono getResult(ServerHttpRequest request) {
         return Mono.defer(() -> Mono.just("Result is ready!"))
-                   .delaySubscription(Duration.ofMillis(500));
+                   .delaySubscription(Duration.ofMillis(200));
     }
 }
